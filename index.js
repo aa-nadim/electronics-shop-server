@@ -38,21 +38,14 @@ client.connect(err => {
 
 
   app.delete('/delete/:id', (req, res) => {
-    // const id = ObjectID(req.params.id);
-    
     productCollection.findOneAndDelete({_id: ObjectID(req.params.id)})
     .then(result => {
       console.log(result);
     })
-    // productCollection.findOneAndDelete({_id: id})
-    // .then(documents => res.send(!!documents.value))
   })
   
 
 });
-
-
-
 
 app.listen(port, () => {
    console.log(`Example app listening at http://localhost:${port}`)
